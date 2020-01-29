@@ -1738,9 +1738,8 @@ class Activate extends React.Component {
                                       daiBalance: daiBalance
                                     });
                                     if (
-                                      daiBalance >=
-                                        Number(this.state.activateAmount) &&
-                                      this.state.web3.networkId
+                                      Number(daiBalance) >=
+                                        Number(this.state.activateAmount)
                                     ) {
                                       this.setState({
                                         depositColor: "has-success"
@@ -1790,9 +1789,8 @@ class Activate extends React.Component {
                                       rdaiBalance: rdaiBalance
                                     });
                                     if (
-                                      rdaiBalance >=
-                                        Number(this.state.withdrawAmount) &&
-                                      this.state.web3.networkId
+                                      Number(rdaiBalance) >=
+                                        Number(this.state.withdrawAmount)
                                     ) {
                                       this.setState({
                                         depositColor: "has-success"
