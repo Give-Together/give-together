@@ -2,8 +2,6 @@
     "name": "givetogether",
     "version": "1.0.0",
     "description": "A no loss way to give charitable donations to a new charity each week",
-    "homepage": "https://give-together.github.io/give-together/",
-    "main": "index.js",
     "author": "Lucas Kohorst",
     "license": "MIT",
     "dependencies": {
