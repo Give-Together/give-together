@@ -108,3 +108,7 @@ dist
 .env.js
 .vscode
 src/firestore.js
+.firebaserc
+firebase.json
+.firebase/
+package-lock.json
