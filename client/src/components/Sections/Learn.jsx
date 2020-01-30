@@ -12,21 +12,6 @@ class Learn extends React.Component {
     return (
       <React.Fragment>
         <section className="section">
-          <img
-            alt="..."
-            className="path"
-            src={require("../../assets/img/path4.png")}
-          />
-          <img
-            alt="..."
-            className="path2"
-            src={require("../../assets/img/path5.png")}
-          />
-          <img
-            alt="..."
-            className="path3"
-            src={require("../../assets/img/path2.png")}
-          />
           <Container>
             <Row className="justify-content-center">
               <Row className="row-grid justify-content-center">

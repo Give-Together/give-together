@@ -1622,38 +1622,13 @@ class Activate extends React.Component {
         </div>
         <div className="wrapper">
           <div className="page-header">
-            <img
-              alt="..."
-              className="path"
-              src={require("../assets/img/blob.png")}
-            />
-            <img
-              alt="..."
-              className="shapes triangle"
-              src={require("../assets/img/triunghiuri.png")}
-            />
-            <img
-              alt="..."
-              className="shapes wave"
-              src={require("../assets/img/waves.png")}
-            />
-            <img
-              alt="..."
-              className="shapes squares"
-              src={require("../assets/img/patrat.png")}
-            />
-            <img
-              alt="..."
-              className="shapes circle"
-              src={require("../assets/img/cercuri.png")}
-            />
             <div className="content-center" style={{ marginTop: "-5rem" }}>
               <Row className="row-grid justify-content-between align-items-center text-left">
-                <div className="section section-tabs">
+                <div className="section section-tabs" style={{ margin:  "0 auto" }}>
                   <Container>
                     <Col>
                       <div className="wrapper">
-                        <Card className="card-stats" style={{ width: "50rem" }}>
+                        <Card className="card-stats">
                           <div
                             style={{
                               display: "flex",
@@ -1664,12 +1639,13 @@ class Activate extends React.Component {
                               <h3 className="text-center">
                                 {this.state.type} your Donation
                               </h3>
+                              <Row className="row-grid justify-content-between">
                               <Nav
                                 className="nav-tabs-info"
                                 role="tablist"
                                 tabs
                               >
-                                <NavItem style={{ marginRight: "2rem" }}>
+                                <NavItem>
                                   <Button
                                     onClick={e => {
                                       this.toggleTabs(e, "textTabs", 4);
@@ -1681,7 +1657,7 @@ class Activate extends React.Component {
                                     Deposit
                                   </Button>
                                 </NavItem>
-                                <NavItem style={{ marginRight: "2rem" }}>
+                                <NavItem>
                                   <Button
                                     onClick={e => {
                                       this.toggleTabs(e, "textTabs", 5);
@@ -1694,6 +1670,7 @@ class Activate extends React.Component {
                                   </Button>
                                 </NavItem>
                               </Nav>
+                              </Row>
                             </CardHeader>
                           </div>
                           <CardBody>
@@ -1739,7 +1716,7 @@ class Activate extends React.Component {
                                     });
                                     if (
                                       Number(daiBalance) >=
-                                        Number(this.state.activateAmount)
+                                      Number(this.state.activateAmount)
                                     ) {
                                       this.setState({
                                         depositColor: "has-success"
@@ -1790,7 +1767,7 @@ class Activate extends React.Component {
                                     });
                                     if (
                                       Number(rdaiBalance) >=
-                                        Number(this.state.withdrawAmount)
+                                      Number(this.state.withdrawAmount)
                                     ) {
                                       this.setState({
                                         depositColor: "has-success"
@@ -1818,12 +1795,12 @@ class Activate extends React.Component {
                                   Math.round(this.state.daiBalance * 10) / 10
                                 ).toFixed(2)}
                               </h5>
-                              <h5>
+                              {/* <h5>
                                 rDAI Contribution:{" "}
                                 {Math.max(
                                   Math.round(this.state.rdaiBalance * 10) / 10
                                 ).toFixed(2)}
-                              </h5>
+                              </h5> */}
                               <Row
                                 style={{
                                   display: "flex",
@@ -1838,7 +1815,6 @@ class Activate extends React.Component {
                                         "_blank"
                                       )
                                     }
-                                    style={{ marginRight: "2em" }}
                                   >
                                     Swap ETH for DAI
                                   </Button>
@@ -1851,7 +1827,30 @@ class Activate extends React.Component {
                               </Row>
                             </div>
                           ) : (
-                            ""
+                            <Row
+                              style={{
+                                display: "flex",
+                                justifyContent: "center"
+                              }}
+                            >
+                              <h5>
+                                <Button
+                                  onClick={() =>
+                                    window.open(
+                                      "https://uniswap.exchange/swap",
+                                      "_blank"
+                                    )
+                                  }
+                                >
+                                  Swap ETH for DAI
+                                </Button>
+                              </h5>
+                              <h5>
+                                <Button onClick={() => this.connectWeb3()}>
+                                  Connect Wallet
+                                </Button>
+                              </h5>
+                            </Row>
                           )}
                         </Card>
                       </div>

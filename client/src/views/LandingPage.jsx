@@ -43,6 +43,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { convertUnix } from "../utils/ConvertUnix";
 import { getQRCode } from "../utils/getQR";
 import { PopoverQR } from "../components/Elements/Popover";
+import { isMobile } from "react-device-detect";
 
 import firestore from "../firestore.js";
 import firebase from "firebase/app";
@@ -1247,31 +1248,6 @@ class LandingPage extends React.Component {
         </div>
         <div className="wrapper">
           <div className="page-header">
-            <img
-              alt="..."
-              className="path"
-              src={require("../assets/img/blob.png")}
-            />
-            <img
-              alt="..."
-              className="shapes triangle"
-              src={require("../assets/img/triunghiuri.png")}
-            />
-            <img
-              alt="..."
-              className="shapes wave"
-              src={require("../assets/img/waves.png")}
-            />
-            <img
-              alt="..."
-              className="shapes squares"
-              src={require("../assets/img/patrat.png")}
-            />
-            <img
-              alt="..."
-              className="shapes circle"
-              src={require("../assets/img/cercuri.png")}
-            />
             <div className="content-center">
               <Row className="row-grid justify-content-between align-items-center text-center">
                 <Col>
@@ -1285,11 +1261,14 @@ class LandingPage extends React.Component {
                         <h3>
                           This weeks charity{" "}
                           <u>
-                            <a href={this.state.charity[2]} target="_blank">
+                            <a
+                              href={this.state.charity[2]}
+                              target="_blank"
+                            >
                               {this.state.charity[1]}
                             </a>
                           </u>{" "}
-                          Donate Directly{" "}
+                          <br />Donate Directly{" "}
                           <a
                             href={
                               "https://www.etherscan.io/" +
@@ -1297,9 +1276,9 @@ class LandingPage extends React.Component {
                             }
                             target="_blank"
                           >
-                            {this.state.currentCharityAddr}
+                            {this.state.currentCharityAddr.slice(0, 5) +  "..."}
                           </a>
-                          {getQRCode(this.state.currentCharityAddr)}
+                          <div className="pt-2">{getQRCode(this.state.currentCharityAddr)}</div>
                         </h3>
                         <h4 className="text-white">
                           This weeks interest <br />
@@ -1376,11 +1355,6 @@ class LandingPage extends React.Component {
             </div>
           </div>
           <section id="how">
-            <img
-              alt="..."
-              className="path"
-              src={require("../assets/img/path4.png")}
-            />
             <Container className="mt-5">
               <Row className="row-grid justify-content-between">
                 {this.state.web3 ? (
@@ -1496,76 +1470,87 @@ class LandingPage extends React.Component {
           <Learn />
           <section>
             <Container>
-              <Col md="12">
-                <h2 className="text-center" id="charities">
-                  Charities
-                </h2>
-                <ListGroup className="m-5">
-                  {this.state.charityList
-                    .slice(0, this.state.listSize)
-                    .map(charity => (
-                      <ListGroupItem
-                        key={charity.address}
-                        style={{
-                          color: "white",
-                          border: "none",
-                          opacity: "0.9"
-                        }}
-                        className="bg-dark"
-                      >
-                        <Col>
-                          <Row>
-                            <br />
-                            <PopoverQR address={charity.address} />
-                            <h4
-                              style={{
-                                marginLeft: "0.5rem",
-                                wordWrap: "break-word"
-                              }}
+              {!isMobile ? (
+                <Col md="12">
+                  <h2 className="text-center" id="charities">
+                    Charities
+                  </h2>
+                  <ListGroup className="m-5">
+                    {this.state.charityList
+                      .slice(0, this.state.listSize)
+                      .map(charity => (
+                        <ListGroupItem
+                          key={charity.address}
+                          style={{
+                            color: "white",
+                            border: "none",
+                            opacity: "0.9"
+                          }}
+                          className="bg-dark"
+                        >
+                          <Col>
+                            <Row>
+                              <br />
+                              <PopoverQR address={charity.address} />
+                              <h4
+                                style={{
+                                  marginLeft: "0.5rem",
+                                  wordWrap: "break-word",
+                                  fontSize: "1.25vw"
+                                }}
+                              >
+                                {charity.address}
+                              </h4>
+                            </Row>
+                          </Col>
+                          <Col>
+                            <a href={charity.website} target="_blank">
+                              {charity.website}
+                            </a>
+                          </Col>
+                          <Col>
+                            <a
+                              href={"https://etherscan.io/" + charity.address}
+                              target="_blank"
                             >
                               {charity.address}
-                            </h4>
-                          </Row>
-                        </Col>
-                        <Col>
-                          <a href={charity.website} target="_blank">
-                            {charity.website}
-                          </a>
-                        </Col>
-                        <Col>
-                          <a
-                            href={"https://etherscan.io/" + charity.address}
-                            target="_blank"
-                          >
-                            {charity.address}
-                          </a>
-                        </Col>
-                      </ListGroupItem>
-                    ))}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignContent: "center",
-                      justifyContent: "center"
-                    }}
-                  >
-                    <button
-                      className="btn-primary btn-round mt-3"
-                      style={{ width: "10rem", outline: "none" }}
-                      onClick={() => this.updateListSize()}
+                            </a>
+                          </Col>
+                        </ListGroupItem>
+                      ))}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignContent: "center",
+                        justifyContent: "center"
+                      }}
                     >
-                      {this.state.loadBtnText}
-                    </button>
-                  </div>
-                  <h5 className="text-center mt-4">
-                    More detailed information about supported charities can be
-                    found{" "}
-                    <a href="https://github.com/Lucas-Kohorst/GiveTogether/blob/master/Charities.md">
-                      here
-                    </a>
-                  </h5>
-                </ListGroup>
-              </Col>
+                      <button
+                        className="btn-primary btn-round mt-3"
+                        style={{ width: "10rem", outline: "none" }}
+                        onClick={() => this.updateListSize()}
+                      >
+                        {this.state.loadBtnText}
+                      </button>
+                    </div>
+                    <h5 className="text-center mt-4">
+                      More detailed information about supported charities can be
+                      found{" "}
+                      <a href="https://github.com/Lucas-Kohorst/GiveTogether/blob/master/Charities.md">
+                        here
+                      </a>
+                    </h5>
+                  </ListGroup>
+                </Col>
+              ) : (
+                <h5 className="text-center mt-4">
+                  More detailed information about supported charities can be
+                  found{" "}
+                  <a href="https://github.com/Lucas-Kohorst/GiveTogether/blob/master/Charities.md">
+                    here
+                  </a>
+                </h5>
+              )}
             </Container>
           </section>
           <Footer />

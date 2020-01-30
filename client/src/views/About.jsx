@@ -172,7 +172,7 @@ const About = props => {
                     onClick={toggle}
                     style={{ marginBottom: "1rem" }}
                   >
-                    How does Give Together make money?
+                   Does Give Together make money?
                   </Button>
                   <Collapse isOpen={isOpen}>
                     <Card>
