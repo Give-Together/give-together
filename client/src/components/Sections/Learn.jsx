@@ -47,9 +47,12 @@ class Learn extends React.Component {
                     <hr className="line-warning" />
                     <p>
                       By activating your DAI on Give Together your interest will
-                      be transferred to the Give Together Smart Contract at
-                      0x123. This contract determines a new charity to give to
-                      each week and at the end of the week we will activate the
+                      be transferred to the Give Together Smart Contract{" "}
+                      <a href="https://etherscan.io/address/0xf9ab04846cb73405e2a4ab24f9b66d6c54821043">
+                        here
+                      </a>
+                      . This contract determines a new charity to give to each
+                      week and at the end of the week we will activate the
                       donate function to send the money to the chosen charity.
                     </p>
                   </div>
