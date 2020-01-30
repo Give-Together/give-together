@@ -1147,9 +1147,9 @@ class LandingPage extends React.Component {
         })
         .then(function(result) {
           totalDonation = Math.round(
-            (totalDonation / 10000000000000000) * result.USD
+            (totalDonation / 1000000000000000000) * result.USD
           );
-          totalInterest = totalInterest / 10000000000000000;
+          totalInterest = totalInterest / 1000000000000000000;
         });
       const currentDate = await contract.methods.currentDate().call();
       var donationTime = convertUnix(currentDate);
