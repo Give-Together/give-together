@@ -79,7 +79,7 @@ class LandingPage extends React.Component {
 
   componentDidMount = async () => {
     document.body.classList.toggle("landing-page");
-    this.notifyMsg("Contract is being rebuilt use at your own risk")
+    await his.notifyMsg("Contract is being rebuilt use at your own risk")
     this.connectWeb3();
     if (!this.state.networkId) {
       let charitiesRef = this.state.db.collection("charities");
