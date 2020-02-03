@@ -48,7 +48,10 @@ class Learn extends React.Component {
                     <p>
                       By activating your DAI on Give Together your interest will
                       be transferred to the Give Together Smart Contract{" "}
-                      <a href="https://etherscan.io/address/0xf9ab04846cb73405e2a4ab24f9b66d6c54821043" target="_blank">
+                      <a
+                        href="https://etherscan.io/address/0xf9ab04846cb73405e2a4ab24f9b66d6c54821043"
+                        target="_blank"
+                      >
                         here
                       </a>
                       . This contract determines a new charity to give to each
@@ -70,7 +73,7 @@ class Learn extends React.Component {
                       directly to the charities ETH accounts. A full list of the
                       charities supported can be found{" "}
                       <a
-                        href="https://github.com/Lucas-Kohorst/GiveTogether/blob/master/Charities.md"
+                        href="https://github.com/Give-Together/give-together/blob/master/Charities.md"
                         target="_blank"
                       >
                         here

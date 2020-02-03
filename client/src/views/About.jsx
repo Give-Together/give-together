@@ -58,9 +58,10 @@ const About = props => {
                 <h4>
                   This is the frequently asked questions section hopefully your
                   question is answered here. If not you can ask it directly in
-                  our <a href="">Discord</a> or message us on{" "}
-                  <a href="">Twitter</a>. Thank you for supporting new charities
-                  through your interest!
+                  our <a href="https://discord.gg/4FnWFmu">Discord</a> or
+                  message us on{" "}
+                  <a href="https://twitter.com/givetogetherapp">Twitter</a>.
+                  Thank you for supporting new charities through your interest!
                 </h4>
                 <div>
                   <Button
@@ -172,7 +173,7 @@ const About = props => {
                     onClick={toggle}
                     style={{ marginBottom: "1rem" }}
                   >
-                   Does Give Together make money?
+                    Does Give Together make money?1
                   </Button>
                   <Collapse isOpen={isOpen}>
                     <Card>
@@ -233,7 +234,7 @@ const About = props => {
                 <div style={{ width: "50%", margin: "0 auto" }}>
                   <Row className="row-grid justify-content-between align-items-center text-left">
                     <a
-                      href="https://www.twitter.com/KohorstLucas"
+                      href="https://twitter.com/givetogetherapp"
                       target="_blank"
                     >
                       <Button
@@ -248,10 +249,7 @@ const About = props => {
                         Twitter
                       </Button>
                     </a>
-                    <a
-                      href="https://www.twitter.com/KohorstLucas"
-                      target="_blank"
-                    >
+                    <a href="https://discord.gg/4FnWFmu" target="_blank">
                       <Button color="dark" style={{ marginBottom: "1rem" }}>
                         <i
                           className="fab fa-discord"

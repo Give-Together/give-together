@@ -73,11 +73,13 @@ class LandingPage extends React.Component {
   }
 
   notifySuccess = network => toast.success("Connecting to " + network);
+  notifyMsg = msg => toast.error(msg);
   notifyWarn = network => toast.warn("Incorrect network " + network);
   notifyError = network => toast.error("No Web3 Provider or unknown network");
 
   componentDidMount = async () => {
     document.body.classList.toggle("landing-page");
+    this.notifyMsg("Contract is being rebuilt use at your own risk")
     this.connectWeb3();
     if (!this.state.networkId) {
       let charitiesRef = this.state.db.collection("charities");
@@ -1261,14 +1263,12 @@ class LandingPage extends React.Component {
                         <h3>
                           This weeks charity{" "}
                           <u>
-                            <a
-                              href={this.state.charity[2]}
-                              target="_blank"
-                            >
+                            <a href={this.state.charity[2]} target="_blank">
                               {this.state.charity[1]}
                             </a>
                           </u>{" "}
-                          <br />Donate Directly{" "}
+                          <br />
+                          Donate Directly{" "}
                           <a
                             href={
                               "https://www.etherscan.io/" +
@@ -1276,9 +1276,11 @@ class LandingPage extends React.Component {
                             }
                             target="_blank"
                           >
-                            {this.state.currentCharityAddr.slice(0, 5) +  "..."}
+                            {this.state.currentCharityAddr.slice(0, 5) + "..."}
                           </a>
-                          <div className="pt-2">{getQRCode(this.state.currentCharityAddr)}</div>
+                          <div className="pt-2">
+                            {getQRCode(this.state.currentCharityAddr)}
+                          </div>
                         </h3>
                         <h4 className="text-white">
                           This weeks interest <br />
@@ -1536,7 +1538,7 @@ class LandingPage extends React.Component {
                     <h5 className="text-center mt-4">
                       More detailed information about supported charities can be
                       found{" "}
-                      <a href="https://github.com/Lucas-Kohorst/GiveTogether/blob/master/Charities.md">
+                      <a href="https://github.com/Give-Together/give-together/blob/master/Charities.md">
                         here
                       </a>
                     </h5>
@@ -1546,7 +1548,7 @@ class LandingPage extends React.Component {
                 <h5 className="text-center mt-4">
                   More detailed information about supported charities can be
                   found{" "}
-                  <a href="https://github.com/Lucas-Kohorst/GiveTogether/blob/master/Charities.md">
+                  <a href="https://github.com/Give-Together/give-together/blob/master/Charities.md">
                     here
                   </a>
                 </h5>
