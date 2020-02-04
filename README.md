@@ -42,4 +42,4 @@ Built using [Truffle React Box](https://www.trufflesuite.com/boxes/react)
 [0x44e9376B21c8176fB9FaCD82DEa1489F9F149CF0](https://ropsten.etherscan.io/address/0x44e9376B21c8176fB9FaCD82DEa1489F9F149CF0) | [One Click Dapp](https://oneclickdapp.com/rachel-echo/)
 
 ### Mainnet
-[0xf9ab04846cb73405e2a4ab24f9b66d6c54821043](https://etherscan.io/address/0xf9ab04846cb73405e2a4ab24f9b66d6c54821043) | [One Click Dapp](https://oneclickdapp.com/temple-boxer/)
+[0x7590b741a344f2425a931bb3949d66938e352bd3](https://etherscan.io/address/0x7590b741a344f2425a931bb3949d66938e352bd3)
