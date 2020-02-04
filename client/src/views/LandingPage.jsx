@@ -60,7 +60,7 @@ class LandingPage extends React.Component {
       web3: null,
       accounts: null,
       contract: null,
-      contractAddress: "0xF9ab04846Cb73405E2A4Ab24F9B66d6c54821043",
+      contractAddress: "0x7590b741a344f2425a931bB3949d66938e352Bd3",
       charityList: [],
       numCharities: null,
       totalDonation: null,
@@ -73,13 +73,20 @@ class LandingPage extends React.Component {
   }
 
   notifySuccess = network => toast.success("Connecting to " + network);
-  notifyMsg = msg => toast.error(msg);
+  notifyMsg = msg => toast.error(msg, { position: "bottom-right" });
   notifyWarn = network => toast.warn("Incorrect network " + network);
   notifyError = network => toast.error("No Web3 Provider or unknown network");
 
   componentDidMount = async () => {
     document.body.classList.toggle("landing-page");
-    await his.notifyMsg("Contract is being rebuilt use at your own risk")
+    this.notifyMsg(
+      <a
+        href="https://etherscan.io/address/0x7590b741a344f2425a931bb3949d66938e352bd3"
+        style={{ color: "white", textDecoration: "underline" }}
+      >
+        Please migrate your DAI to the new contract
+      </a>
+    );
     this.connectWeb3();
     if (!this.state.networkId) {
       let charitiesRef = this.state.db.collection("charities");
