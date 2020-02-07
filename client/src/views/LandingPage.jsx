@@ -79,14 +79,6 @@ class LandingPage extends React.Component {
 
   componentDidMount = async () => {
     document.body.classList.toggle("landing-page");
-    this.notifyMsg(
-      <a
-        href="https://etherscan.io/address/0x7590b741a344f2425a931bb3949d66938e352bd3"
-        style={{ color: "white", textDecoration: "underline" }}
-      >
-        Please migrate your DAI to the new contract
-      </a>
-    );
     this.connectWeb3();
     if (!this.state.networkId) {
       let charitiesRef = this.state.db.collection("charities");
@@ -1278,7 +1270,7 @@ class LandingPage extends React.Component {
                           Donate Directly{" "}
                           <a
                             href={
-                              "https://www.etherscan.io/" +
+                              "https://www.etherscan.io/address/" +
                               this.state.currentCharityAddr
                             }
                             target="_blank"
