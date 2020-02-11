@@ -2,3 +2,4 @@ client/.firebaserc
 client/firebase.json
 client/package-lock.json
 client/.firebase/
+client/build

@@ -1169,9 +1169,6 @@ class Activate extends React.Component {
           desktopPosition: "topRight"
         });
         notify.hash(hash);
-        this.setState({
-          activateAmount: 0
-        });
       })
       .then(result => {
         console.log("Success: " + result.transactionHash);
@@ -1199,9 +1196,6 @@ class Activate extends React.Component {
           desktopPosition: "topRight"
         });
         notify.hash(hash);
-        this.setState({
-          withdrawAmount: 0
-        });
       })
       .then(result => {
         console.log("Success: " + result.transactionHash);

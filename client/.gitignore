@@ -112,3 +112,4 @@ src/firestore.js
 firebase.json
 .firebase/
 package-lock.json
+build/
