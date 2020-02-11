@@ -40,6 +40,7 @@ import Footer from "../components/Footer/Footer.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import getWeb3 from "../getWeb3";
 import "react-toastify/dist/ReactToastify.css";
+import Notify from "bnc-notify";
 
 class Activate extends React.Component {
   constructor(props) {
@@ -1159,32 +1160,21 @@ class Activate extends React.Component {
       })
       .on("transactionHash", function(hash) {
         console.log("Transaction Hash: " + hash);
-        toast.warn(
-          <a href={"https://etherscan.io/tx/" + hash}>{"Pending " + hash}</a>,
-          {
-            position: "top-right",
-            autoClose: false,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true
-          }
-        );
+        var notify = Notify({
+          dappId: "1fdb252c-0f9f-4ec6-ac04-6eb1cdf34076", // [String] The API key created by step one above
+          networkId: 1 // [Integer] The Ethereum network ID your Dapp uses.
+        });
+        notify.config({
+          darkMode: true,
+          desktopPosition: "topRight"
+        });
+        notify.hash(hash);
+        this.setState({
+          activateAmount: 0
+        });
       })
       .then(result => {
-        toast.success(
-          <a href={"https://etherscan.io/tx/" + result.transactionHash}>
-            {"Confirmed " + result.transactionHash}
-          </a>,
-          {
-            position: "top-right",
-            autoClose: false,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false
-          }
-        );
+        console.log("Success: " + result.transactionHash);
       });
   };
 
@@ -1200,32 +1190,21 @@ class Activate extends React.Component {
       })
       .on("transactionHash", function(hash) {
         console.log("Transaction Hash: " + hash);
-        toast.warn(
-          <a href={"https://etherscan.io/tx/" + hash}>{"Pending " + hash}</a>,
-          {
-            position: "top-right",
-            autoClose: false,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false
-          }
-        );
+        var notify = Notify({
+          dappId: "1fdb252c-0f9f-4ec6-ac04-6eb1cdf34076", // [String] The API key created by step one above
+          networkId: 1 // [Integer] The Ethereum network ID your Dapp uses.
+        });
+        notify.config({
+          darkMode: true,
+          desktopPosition: "topRight"
+        });
+        notify.hash(hash);
+        this.setState({
+          withdrawAmount: 0
+        });
       })
       .then(result => {
-        toast.success(
-          <a href={"https://etherscan.io/tx/" + result.transactionHash}>
-            {"Confirmed " + result.transactionHash}
-          </a>,
-          {
-            position: "top-right",
-            autoClose: false,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true
-          }
-        );
+        console.log("Success: " + result.transactionHash);
       });
   };
 
@@ -1624,7 +1603,10 @@ class Activate extends React.Component {
           <div className="page-header">
             <div className="content-center" style={{ marginTop: "-5rem" }}>
               <Row className="row-grid justify-content-between align-items-center text-left">
-                <div className="section section-tabs" style={{ margin:  "0 auto" }}>
+                <div
+                  className="section section-tabs"
+                  style={{ margin: "0 auto" }}
+                >
                   <Container>
                     <Col>
                       <div className="wrapper">
@@ -1640,36 +1622,36 @@ class Activate extends React.Component {
                                 {this.state.type} your Donation
                               </h3>
                               <Row className="row-grid justify-content-between">
-                              <Nav
-                                className="nav-tabs-info"
-                                role="tablist"
-                                tabs
-                              >
-                                <NavItem>
-                                  <Button
-                                    onClick={e => {
-                                      this.toggleTabs(e, "textTabs", 4);
-                                      this.setState({
-                                        type: "Activate"
-                                      });
-                                    }}
-                                  >
-                                    Deposit
-                                  </Button>
-                                </NavItem>
-                                <NavItem>
-                                  <Button
-                                    onClick={e => {
-                                      this.toggleTabs(e, "textTabs", 5);
-                                      this.setState({
-                                        type: "Withdraw"
-                                      });
-                                    }}
-                                  >
-                                    Withdraw
-                                  </Button>
-                                </NavItem>
-                              </Nav>
+                                <Nav
+                                  className="nav-tabs-info"
+                                  role="tablist"
+                                  tabs
+                                >
+                                  <NavItem>
+                                    <Button
+                                      onClick={e => {
+                                        this.toggleTabs(e, "textTabs", 4);
+                                        this.setState({
+                                          type: "Activate"
+                                        });
+                                      }}
+                                    >
+                                      Deposit
+                                    </Button>
+                                  </NavItem>
+                                  <NavItem>
+                                    <Button
+                                      onClick={e => {
+                                        this.toggleTabs(e, "textTabs", 5);
+                                        this.setState({
+                                          type: "Withdraw"
+                                        });
+                                      }}
+                                    >
+                                      Withdraw
+                                    </Button>
+                                  </NavItem>
+                                </Nav>
                               </Row>
                             </CardHeader>
                           </div>
