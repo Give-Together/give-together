@@ -41,6 +41,7 @@ import { ToastContainer, toast } from "react-toastify";
 import getWeb3 from "../getWeb3";
 import "react-toastify/dist/ReactToastify.css";
 import Notify from "bnc-notify";
+import { notifyConfig } from "../firestore";
 
 class Activate extends React.Component {
   constructor(props) {
@@ -54,7 +55,7 @@ class Activate extends React.Component {
       transactionText: null,
       daiBalance: null,
       rdaibalance: null,
-      type: "Activate"
+      type: "Activate",
     };
   }
 
@@ -1161,7 +1162,7 @@ class Activate extends React.Component {
       .on("transactionHash", function(hash) {
         console.log("Transaction Hash: " + hash);
         var notify = Notify({
-          dappId: "1fdb252c-0f9f-4ec6-ac04-6eb1cdf34076", // [String] The API key created by step one above
+          dappId: notifyConfig, // [String] The API key created by step one above
           networkId: 1 // [Integer] The Ethereum network ID your Dapp uses.
         });
         notify.config({
@@ -1188,7 +1189,7 @@ class Activate extends React.Component {
       .on("transactionHash", function(hash) {
         console.log("Transaction Hash: " + hash);
         var notify = Notify({
-          dappId: "1fdb252c-0f9f-4ec6-ac04-6eb1cdf34076", // [String] The API key created by step one above
+          dappId: notifyConfig, // [String] The API key created by step one above
           networkId: 1 // [Integer] The Ethereum network ID your Dapp uses.
         });
         notify.config({
