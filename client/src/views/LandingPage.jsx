@@ -1148,7 +1148,7 @@ class LandingPage extends React.Component {
         })
         .then(function(result) {
           totalDonation = Math.round(
-            (totalDonation / 1000000000000000000) * result.USD
+            (totalDonation / 1000000000000000000)
           );
           totalInterest = totalInterest / 1000000000000000000;
         });
@@ -1386,7 +1386,7 @@ class LandingPage extends React.Component {
                             </CardBody>
                           </Card>
                         </Col>
-                        {/* <Col className="px-2 py-2" lg="6" sm="12">
+                        <Col className="px-2 py-2" lg="6" sm="12">
                           <Card className="card-stats">
                             <CardBody>
                               <Row>
@@ -1407,7 +1407,7 @@ class LandingPage extends React.Component {
                               </Row>
                             </CardBody>
                           </Card>
-                        </Col> */}
+                        </Col>
                       </Row>
                       <Row>
                         <Col className="px-2 py-2" lg="6" sm="12">
