@@ -7,7 +7,7 @@ A no loss donation to a new charity each week
 
 Thanks to [Flowerpot network](https://flowerpot.network)
 
-This is a contract address and can accept rDAI and ETH this is a one time dontion navigate to [Give Together]https://givetogether.app) to give no loss charitable donations each week
+This is a contract address and can accept rDAI and ETH this is a one time dontion navigate to [Give Together](https://givetogether.app) to give no loss charitable donations each week
 
 Give Together allows your to donate interest accrued on your money to the charity of the week. 
 
