@@ -3,6 +3,12 @@ A no loss donation to a new charity each week
 
 [Twitter](https://twitter.com/givetogetherapp) | [Discord](https://discord.gg/4FnWFmu) | [Blog](https://medium.com/give-together)
 
+[![One Time Donation](https://res.cloudinary.com/dvargvav9/image/upload/v1581842794/button2_w5exua.svg)](https://flowerpot.network/Give-Together?trigger=true)
+
+Thanks to [Flowerpot network](https://flowerpot.network)
+
+This is a contract address and can accept rDAI and ETH this is a one time dontion navigate to [Give Together]https://givetogether.app) to give no loss charitable donations each week
+
 Give Together allows your to donate interest accrued on your money to the charity of the week. 
 
 Give Together converts your DAI into [rDAI](http://rdai.money/) a layer built on top of [cDAI](https://compound.finance/ctokens). cDAI is the [Compound Protocol](https://compound.finance/) tokenized in [v2](https://medium.com/compound-finance/compound-v2-is-live-157db0b7cfc8). Tokenizing on Compound allows you to trade your tokens just like normal. While it still accrues interest! rDAI takes this idea and adds to it. If you trade your cDAI the new holder earns the interest. But rDAI allows you to set a beneficiary when it is minted (You can even set multiple) who will receive the interest. This allows you to trade the token freely while the interest is still transferred to the beneficiary that was set when minted. This makes rDAI perfect for donating to charities or causes that you are passionate about. All while being able to transact the token as normal.
