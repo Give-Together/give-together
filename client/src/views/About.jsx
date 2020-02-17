@@ -231,8 +231,20 @@ const About = props => {
                   We would love to connect with you and answer any questions you
                   may have
                 </h4>
-                <div style={{ width: "50%", margin: "0 auto" }}>
+                <div style={{ width: "75%", margin: "0 auto" }}>
                   <Row className="row-grid justify-content-between align-items-center text-left">
+                    <a
+                      href="https://join.status.im/chat/public/givetogether-app"
+                      target="_blank"
+                    >
+                      <Button
+                        color="dark"
+                        style={{ marginBottom: "1rem" }}
+                        className="text-center"
+                      >
+                        Status
+                      </Button>
+                    </a>
                     <a
                       href="https://twitter.com/givetogetherapp"
                       target="_blank"
