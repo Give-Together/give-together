@@ -1147,7 +1147,7 @@ class Activate extends React.Component {
   };
 
   activateDai = async () => {
-    const hat = 61;
+    const hat = 116;
     var gasPrice = await this.state.web3.eth.getGasPrice();
     this.notifyWarn("Activate by paying Gas");
     this.state.contract.methods
