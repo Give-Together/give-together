@@ -17,7 +17,6 @@
 | Tor Project                        | Privacy        | [Tor Project](https://www.torproject.org/)                                     | 0x19DdD94B94D3c68385c897846AB44Ac99DBFAe0f |   |
 | UNICEF New Zealand through Spring by WeTrust                        | Child Rights        | [UNICEF NZ](https://www.unicef.org.nz/)                                     | 0x3a9f94DE63612f4A117Adf20F745bd420d148ac1 |   |
 | Rainforest Trust through Spring by WeTrust                        | Rainforests        | [Rainforest Trust](https://www.rainforesttrust.org/)                                     | 0xC94BD2b79921DAa2395EB74934D867346C4C71d4 |   |
-| Open Library through Spring by WeTrust                        | Education        | [Open Library](https://openlibrary.org/)                                     | 0x0332bfEB38bF8b225cEEdF1EbF5F0e3Af0bb81CC |   |
 | FreeCodeCamp through Spring by WeTrust                        | Education        | [FreeCodeCamp](https://www.freecodecamp.org/)                                     | 0xe0c83D05DB000393B22F85432F047167a5d650a8 |   |
 | Develop Africa through Spring by WeTrust                        | Development        | [Develop Africa](https://www.developafrica.org/)                                     | 0x682E9f760C5Be1A954A3e0499c5fb43faf4B86fB |   |
 | The Lupus Foundation through Spring by WeTrust                        | Medicine        | [The Lupus Foundation](https://www.lupus.org/)                                     | 0x0AAD8B37E1f9a2AA3088c5bd3235bB120F40E8aD |   |
