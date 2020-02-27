@@ -60,7 +60,7 @@ class LandingPage extends React.Component {
       web3: null,
       accounts: null,
       contract: null,
-      contractAddress: "0x7590b741a344f2425a931bB3949d66938e352Bd3",
+      contractAddress: "0x931621613F1f1953adB085C2B06d664363E54AaF",
       charityList: [],
       numCharities: null,
       totalDonation: null,
@@ -1139,6 +1139,7 @@ class LandingPage extends React.Component {
       var totalInterest = await rDaiContract.methods
         .interestPayableOf(this.state.contractAddress)
         .call();
+      totalInterest = totalInterest / 1000000000000000000;
 
       // Getting total donation and time till donation
       var totalDonation = await contract.methods.totalDonation().call();
@@ -1147,28 +1148,30 @@ class LandingPage extends React.Component {
           return response.json();
         })
         .then(function(result) {
-          totalDonation = Math.round(
-            (totalDonation / 1000000000000000000)
+          result = Math.round(
+            (result / 1000000000000000000)
           );
-          totalInterest = totalInterest / 1000000000000000000;
         });
       const currentDate = await contract.methods.currentDate().call();
-      var donationTime = convertUnix(currentDate);
+      const currentDateModifier = await contract.methods.sendDonationTime().call();
+
+      let date = Number(currentDate) + Number(currentDateModifier);
+      var donationTime = convertUnix(date);
 
       // Getting list of charities
-      var numCharities = await contract.methods.getNumCharities().call();
-      var charityList = [];
-      for (var i = 0; i < numCharities; i++) {
-        var charityAddr = await contract.methods.charityAccts(i).call();
-        var charityValues = await contract.methods
-          .charities(charityAddr)
-          .call();
-        charityList.push({
-          address: charityAddr,
-          name: charityValues.name,
-          website: charityValues.website
-        });
-      }
+      // var numCharities = await contract.methods.getNumCharities().call();
+      // var charityList = [];
+      // for (var i = 0; i < numCharities; i++) {
+      //   var charityAddr = await contract.methods.charityAccts(i).call();
+      //   var charityValues = await contract.methods
+      //     .charities(charityAddr)
+      //     .call();
+      //   charityList.push({
+      //     address: charityAddr,
+      //     name: charityValues.name,
+      //     website: charityValues.website
+      //   });
+      // }
 
       this.setState({
         charity: charity,
@@ -1176,9 +1179,6 @@ class LandingPage extends React.Component {
         balance: balance,
         totalDonation: totalDonation,
         timeTillDonation: donationTime,
-        charityList: charityList,
-        listSize: Math.floor(charityList.length / 3),
-        numCharities: numCharities,
         totalInterest: totalInterest
       });
     } catch (error) {}
@@ -1322,28 +1322,24 @@ class LandingPage extends React.Component {
                         href="https://join.status.im/chat/public/givetogether-app"
                         target="_blank"
                       >
-                          <svg
-                            width="26"
-                            height="26"
-                            style={{ marginTop: "0.25em" }}
-                            viewBox="0 0 26 26"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <g>
-                              <rect
-                                width="26"
-                                height="26"
-                                rx="2"
-                              ></rect>
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M13.564 12.5345C14.4448 12.6282 15.3256 12.7219 16.4085 12.6602C19.3425 12.4931 21.1198 10.9547 20.9937 8.6551C20.8652 6.31539 18.5007 4.87391 16.1349 5.0087C12.2794 5.22815 9.44428 8.68621 9.12497 12.6386C9.64857 12.5133 10.1997 12.4385 10.7194 12.4089C11.8024 12.3473 12.6832 12.4409 13.564 12.5345ZM6.00598 17.6495C6.12764 19.7943 8.3677 21.1156 10.6091 20.992C14.2616 20.7908 16.9476 17.6209 17.25 13.9979C16.754 14.1128 16.2319 14.1815 15.7395 14.2085C14.7136 14.265 13.879 14.1792 13.0445 14.0933C12.2101 14.0075 11.3756 13.9217 10.3497 13.9782C7.57021 14.1313 5.88632 15.5415 6.00598 17.6495Z"
-                                fill="white"
-                              ></path>
-                            </g>
-                          </svg>
+                        <svg
+                          width="26"
+                          height="26"
+                          style={{ marginTop: "0.25em" }}
+                          viewBox="0 0 26 26"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g>
+                            <rect width="26" height="26" rx="2"></rect>
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M13.564 12.5345C14.4448 12.6282 15.3256 12.7219 16.4085 12.6602C19.3425 12.4931 21.1198 10.9547 20.9937 8.6551C20.8652 6.31539 18.5007 4.87391 16.1349 5.0087C12.2794 5.22815 9.44428 8.68621 9.12497 12.6386C9.64857 12.5133 10.1997 12.4385 10.7194 12.4089C11.8024 12.3473 12.6832 12.4409 13.564 12.5345ZM6.00598 17.6495C6.12764 19.7943 8.3677 21.1156 10.6091 20.992C14.2616 20.7908 16.9476 17.6209 17.25 13.9979C16.754 14.1128 16.2319 14.1815 15.7395 14.2085C14.7136 14.265 13.879 14.1792 13.0445 14.0933C12.2101 14.0075 11.3756 13.9217 10.3497 13.9782C7.57021 14.1313 5.88632 15.5415 6.00598 17.6495Z"
+                              fill="white"
+                            ></path>
+                          </g>
+                        </svg>
                       </Button>
                       <Button
                         className="btn-icon btn-simple btn-round btn-neutral"
@@ -1418,7 +1414,7 @@ class LandingPage extends React.Component {
                           </Card>
                         </Col>
                         <Col className="px-2 py-2" lg="6" sm="12">
-                          <Card className="card-stats">
+                          {/* <Card className="card-stats">
                             <CardBody>
                               <Row>
                                 <Col md="4" xs="5">
@@ -1437,7 +1433,7 @@ class LandingPage extends React.Component {
                                 </Col>
                               </Row>
                             </CardBody>
-                          </Card>
+                          </Card> */}
                         </Col>
                       </Row>
                       <Row>
@@ -1453,7 +1449,7 @@ class LandingPage extends React.Component {
                                 <Col md="8" xs="7">
                                   <div className="numbers">
                                     <CardTitle tag="p">
-                                      {this.state.numCharities}
+                                        21
                                     </CardTitle>
                                     <p />
                                     <p className="card-category">Charities</p>
