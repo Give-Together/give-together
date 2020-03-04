@@ -49,7 +49,7 @@ class Learn extends React.Component {
                       By activating your DAI on Give Together your interest will
                       be transferred to the Give Together Smart Contract{" "}
                       <a
-                        href="https://etherscan.io/address/0x7590b741a344f2425a931bb3949d66938e352bd3"
+                        href="https://etherscan.io/address/0x931621613F1f1953adB085C2B06d664363E54AaF"
                         target="_blank"
                       >
                         here

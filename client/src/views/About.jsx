@@ -89,11 +89,17 @@ const About = props => {
                           </a>{" "}
                           ) when you activate your DAI on Give Together your
                           benificiary is set to the Give Together{" "}
-                          <a href="">Smart Contract</a> which once your interest
-                          is redeemed to it and it is the end of the current
-                          week all of the proceeds will be sent directly to the
-                          charity of the week. You can find the list of
-                          charities <a href="/#charities">here</a>.
+                          <a
+                            href="https://etherscan.io/address/0x931621613F1f1953adB085C2B06d664363E54AaF"
+                            target="_blank"
+                          >
+                            Smart Contract
+                          </a>{" "}
+                          which once your interest is redeemed to it and it is
+                          the end of the current week all of the proceeds will
+                          be sent directly to the charity of the week. You can
+                          find the list of charities{" "}
+                          <a href="/#charities">here</a>.
                         </p>
                       </CardBody>
                     </Card>
